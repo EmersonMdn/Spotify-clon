@@ -34,6 +34,7 @@ body {
   top: 0;
   right: 0;
   width: calc(100% - 30rem);
+  z-index: 2;
 }
 
 .container-arrows {
@@ -148,8 +149,8 @@ body {
   text-overflow: ellipsis;
   transition: all 0.3s ease;
 }
-.nav-main li a:hover{
-    color: white;
+.nav-main li a:hover {
+  color: white;
 }
 
 .nav-main li a i {
@@ -244,11 +245,139 @@ body {
   grid-column: 2/-1;
 
   padding: 2.5rem;
-  background-color: #101010;
+  background-color: #191919;
 
   display: flex;
   flex-direction: column;
   gap: 3rem;
+}
+
+.title-playlist {
+  font-size: 2.4rem;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+.title-playlist:hover {
+  text-decoration: underline;
+}
+.container-name-concentracion,
+.container-name-spotify-playlist {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.container-card-concentracion,
+.container-card-spotify-playlists {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 2.4rem;
+  justify-items: center;
+}
+.card-concentracion,
+.card-spotify-playlists {
+  border-radius: 0.5rem;
+  padding: 1.6rem;
+  background-color: #181818;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.card-concentracion:hover,
+.card-spotify-playlists:hover {
+  background-color: #282828;
+}
+
+.card-img img {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+.card-img {
+  overflow: hidden;
+}
+
+.card h2 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.card p {
+  font-size: 1.2rem;
+  color: #b3b3b3;
+  font-weight: 400;
+  line-height: 1.5;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/*  # ************************************ #
+    #            FOOTER                    #
+    # ************************************ # */
+
+.footer {
+  grid-row: 3/4;
+  grid-column: 2/-1;
+  color: #fff;
+  background-color: #121212;
+  padding: 6rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+.container-links-footer {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5rem;
+}
+.links-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-size: 1.6rem;
+}
+.links-footer a {
+  color: #a7a7a7;
+  text-decoration: none;
+}
+.links-footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.social-icons {
+  display: flex;
+  gap: 2rem;
+}
+.container-icon {
+  border-radius: 50%;
+  background-color: #292929;
+  width: 4.2rem;
+  height: 4.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-icon:hover {
+  background-color: #727272;
+}
+.container-icon i {
+  font-size: 1.7rem;
+}
+
+.copyright p {
+  color: #a7a7a7;
+  font-size: 1.6rem;
 }
 
 /* 
@@ -280,7 +409,7 @@ body {
   font-size: 1.6rem;
 }
 .btn-favourite-songs i {
-  background-image: linear-gradient(120deg, #af2896, #509bf5);
+  background-image: linear-gradient(120deg, #3000a0 50%, #509bf5);
 }
 
 .btn-create-list i {
@@ -289,4 +418,93 @@ body {
 .extra-options button:hover i {
   opacity: 80%;
   transition: 1s;
+}
+
+/* CLASE ADICIONALES*/
+
+.transparent {
+  opacity: 0.9;
+}
+
+.btn-play {
+  width: 5rem;
+  height: 5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 100%;
+  background-color: #1ed760;
+
+  border: none;
+  outline: none;
+  position: absolute;
+  /* top: 55%;
+  left: 55%; */
+  transform: translate(50%, -50%);
+  cursor: pointer;
+
+  /* animation-name: button-entrance;
+  animation-duration: 500ms; */
+}
+.btn-play i {
+  font-size: 2.3rem;
+  color: #fff;
+}
+
+@keyframes button-entrance {
+  0% {
+    opacity: 0;
+    top: 60%;
+  }
+  20% {
+    opacity: 50%;
+  }
+}
+
+/* / RESPONSIVE */
+/* ========================================================================= / */
+
+/* / Móviles en horizontal o tablets en vertical */
+/* ------------------------------------------------------------------------- / */
+@media (min-width: 864px) {
+  .btn-play {
+    top: 40%;
+    left: 35%;
+  }
+}
+
+@media (min-width: 944px) {
+  .btn-play {
+    top: 50%;
+    left: 45%;
+  }
+}
+
+/* / Tablets en horizonal y escritorios normales */
+/* ------------------------------------------------------------------------- / */
+@media (min-width: 1048px) {
+  .btn-play {
+    top: 45%;
+    left: 40%;
+  }
+}
+
+/* / Escritorios anchos */
+/* ------------------------------------------------------------------------- */
+@media (min-width: 1248px) {
+  .btn-play {
+    top: 45%;
+    left: 45%;
+  }
+}
+
+/* / Escritorios muy anchos */
+/* ------------------------------------------------------------------------- */
+@media (min-width: 1400px) {
+  .btn-play {
+    top: 50%;
+    left: 50%;
+  }
 }
